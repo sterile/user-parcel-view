@@ -16,5 +16,11 @@ namespace UPVApp
         {
             InitializeComponent();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox about = new AboutBox();
+            about.ShowDialog();
+        }
     }
 }
