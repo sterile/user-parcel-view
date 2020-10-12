@@ -74,6 +74,12 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Address.cs" />
+    <Compile Include="AddressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddressForm.Designer.cs">
+      <DependentUpon>AddressForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AirPackage.cs" />
     <Compile Include="GroundPackage.cs" />
     <Compile Include="Letter.cs" />
@@ -92,6 +98,9 @@
     <Compile Include="TwoDayAirPackage.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddressForm.resx">
+      <DependentUpon>AddressForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prog2Form.resx">
       <DependentUpon>Prog2Form.cs</DependentUpon>

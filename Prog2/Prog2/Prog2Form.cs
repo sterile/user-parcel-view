@@ -50,5 +50,16 @@ namespace UPVApp
         {
             Application.Exit();
         }
+
+        /*
+         * Preconditions: The insert Address button is clicked.
+         * Postcondition: The address form appears.
+         */
+
+        private void insertAddressToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddressForm address = new AddressForm();
+            address.ShowDialog();
+        }
     }
 }

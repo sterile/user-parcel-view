@@ -112,6 +112,7 @@
             this.insertAddressToolStripMenuItem.Name = "insertAddressToolStripMenuItem";
             this.insertAddressToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.insertAddressToolStripMenuItem.Text = "Address";
+            this.insertAddressToolStripMenuItem.Click += new System.EventHandler(this.insertAddressToolStripMenuItem_Click);
             // 
             // insertParcelToolStripMenuItem
             // 
