@@ -52,7 +52,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(12, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1134, 44);
+            this.menuStrip1.Size = new System.Drawing.Size(1134, 46);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -100,6 +100,7 @@
             this.insertParcelToolStripMenuItem.Name = "insertParcelToolStripMenuItem";
             this.insertParcelToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.insertParcelToolStripMenuItem.Text = "Letter";
+            this.insertParcelToolStripMenuItem.Click += new System.EventHandler(this.insertParcelToolStripMenuItem_Click);
             // 
             // reportToolStripMenuItem
             // 
@@ -126,12 +127,12 @@
             // reportBox
             // 
             this.reportBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportBox.Location = new System.Drawing.Point(0, 44);
+            this.reportBox.Location = new System.Drawing.Point(0, 46);
             this.reportBox.Margin = new System.Windows.Forms.Padding(6);
             this.reportBox.Multiline = true;
             this.reportBox.Name = "reportBox";
             this.reportBox.ReadOnly = true;
-            this.reportBox.Size = new System.Drawing.Size(1134, 731);
+            this.reportBox.Size = new System.Drawing.Size(1134, 729);
             this.reportBox.TabIndex = 1;
             this.reportBox.Text = "Waiting for report...";
             // 

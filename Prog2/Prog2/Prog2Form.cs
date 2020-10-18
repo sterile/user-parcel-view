@@ -79,5 +79,11 @@ namespace UPVApp
             foreach (Address adr in homes)
                 reportBox.Text += adr.ToString() + Environment.NewLine + Environment.NewLine;
         }
+
+        private void insertParcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LetterForm letterForm = new LetterForm();
+            letterForm.ShowDialog();
+        }
     }
 }
