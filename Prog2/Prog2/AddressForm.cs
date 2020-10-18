@@ -84,5 +84,11 @@ namespace UPVApp
             const int ZERO = 0; // First index
             stateList.SelectedIndex = ZERO;
         }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            if (this.ValidateChildren())
+                this.DialogResult = DialogResult.OK;
+        }
     }
 }
