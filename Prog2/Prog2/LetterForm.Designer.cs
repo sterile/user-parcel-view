@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.fromLabel = new System.Windows.Forms.Label();
             this.toLabel = new System.Windows.Forms.Label();
             this.costLabel = new System.Windows.Forms.Label();
@@ -36,6 +37,8 @@
             this.costBox = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.letterErrors = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.letterErrors)).BeginInit();
             this.SuspendLayout();
             // 
             // fromLabel
@@ -82,6 +85,8 @@
             this.toBox.Name = "toBox";
             this.toBox.Size = new System.Drawing.Size(278, 33);
             this.toBox.TabIndex = 4;
+            this.toBox.Validating += new System.ComponentModel.CancelEventHandler(this.To_Validating);
+            this.toBox.Validated += new System.EventHandler(this.To_Validated);
             // 
             // costBox
             // 
@@ -89,18 +94,24 @@
             this.costBox.Name = "costBox";
             this.costBox.Size = new System.Drawing.Size(278, 31);
             this.costBox.TabIndex = 5;
+            this.costBox.Validating += new System.ComponentModel.CancelEventHandler(this.Cost_Validating);
+            this.costBox.Validated += new System.EventHandler(this.Cost_Validated);
             // 
             // okButton
             // 
+            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okButton.Location = new System.Drawing.Point(222, 206);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(105, 39);
             this.okButton.TabIndex = 6;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // cancelButton
             // 
+            this.cancelButton.CausesValidation = false;
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Location = new System.Drawing.Point(58, 206);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(104, 39);
@@ -108,11 +119,15 @@
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
+            // letterErrors
+            // 
+            this.letterErrors.ContainerControl = this;
+            // 
             // LetterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 266);
+            this.ClientSize = new System.Drawing.Size(432, 266);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.costBox);
@@ -123,6 +138,8 @@
             this.Controls.Add(this.fromLabel);
             this.Name = "LetterForm";
             this.Text = "Letter Form";
+            this.Load += new System.EventHandler(this.LetterForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.letterErrors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,5 +155,6 @@
         private System.Windows.Forms.TextBox costBox;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.ErrorProvider letterErrors;
     }
 }
