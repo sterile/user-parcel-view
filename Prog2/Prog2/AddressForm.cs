@@ -22,7 +22,7 @@ namespace UPVApp
             get
             {
                 int.TryParse(zipBox.Text, out int zip);
-                return new Address(nameBox.Text, address1Box.Text, address2Box.Text, cityBox.Text, stateList.SelectedText, zip);
+                return new Address(nameBox.Text, address1Box.Text, address2Box.Text, cityBox.Text, stateList.Text, zip);
             }
         }
         
