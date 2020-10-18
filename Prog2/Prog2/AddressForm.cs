@@ -16,6 +16,15 @@ namespace UPVApp
         {
             InitializeComponent();
         }
+
+        internal Address newAddress
+        {
+            get
+            {
+                int.TryParse(zipBox.Text, out int zip);
+                return new Address(nameBox.Text, address1Box.Text, address2Box.Text, cityBox.Text, stateList.SelectedText, zip);
+            }
+        }
         
         private void NameField_Validating(object sender, CancelEventArgs e)
         {
