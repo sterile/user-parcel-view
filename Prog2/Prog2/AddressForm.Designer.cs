@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.nameLabel = new System.Windows.Forms.Label();
             this.addressLabel = new System.Windows.Forms.Label();
             this.cityLabel = new System.Windows.Forms.Label();
@@ -41,84 +42,101 @@
             this.zipBox = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.fieldError = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.fieldError)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(16, 12);
+            this.nameLabel.Location = new System.Drawing.Point(32, 23);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(38, 13);
+            this.nameLabel.Size = new System.Drawing.Size(74, 25);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Name:";
             // 
             // addressLabel
             // 
             this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(6, 35);
+            this.addressLabel.Location = new System.Drawing.Point(12, 67);
+            this.addressLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(48, 13);
+            this.addressLabel.Size = new System.Drawing.Size(97, 25);
             this.addressLabel.TabIndex = 1;
             this.addressLabel.Text = "Address:";
             // 
             // cityLabel
             // 
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(27, 93);
+            this.cityLabel.Location = new System.Drawing.Point(54, 179);
+            this.cityLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(27, 13);
+            this.cityLabel.Size = new System.Drawing.Size(55, 25);
             this.cityLabel.TabIndex = 2;
             this.cityLabel.Text = "City:";
             // 
             // stateLabel
             // 
             this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(19, 123);
+            this.stateLabel.Location = new System.Drawing.Point(38, 237);
+            this.stateLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(35, 13);
+            this.stateLabel.Size = new System.Drawing.Size(68, 25);
             this.stateLabel.TabIndex = 3;
             this.stateLabel.Text = "State:";
             // 
             // zipLabel
             // 
             this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(29, 157);
+            this.zipLabel.Location = new System.Drawing.Point(58, 302);
+            this.zipLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.zipLabel.Name = "zipLabel";
-            this.zipLabel.Size = new System.Drawing.Size(25, 13);
+            this.zipLabel.Size = new System.Drawing.Size(48, 25);
             this.zipLabel.TabIndex = 4;
             this.zipLabel.Text = "Zip:";
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(58, 9);
+            this.nameBox.Location = new System.Drawing.Point(116, 17);
+            this.nameBox.Margin = new System.Windows.Forms.Padding(6);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(173, 20);
+            this.nameBox.Size = new System.Drawing.Size(342, 31);
             this.nameBox.TabIndex = 5;
+            this.nameBox.Validating += new System.ComponentModel.CancelEventHandler(this.NameField_Validating);
+            this.nameBox.Validated += new System.EventHandler(this.NameField_Validated);
             // 
             // address1Box
             // 
-            this.address1Box.Location = new System.Drawing.Point(58, 35);
+            this.address1Box.Location = new System.Drawing.Point(116, 67);
+            this.address1Box.Margin = new System.Windows.Forms.Padding(6);
             this.address1Box.Name = "address1Box";
-            this.address1Box.Size = new System.Drawing.Size(173, 20);
+            this.address1Box.Size = new System.Drawing.Size(342, 31);
             this.address1Box.TabIndex = 6;
+            this.address1Box.Validating += new System.ComponentModel.CancelEventHandler(this.Adr1_Validating);
+            this.address1Box.Validated += new System.EventHandler(this.Adr1_Validated);
             // 
             // address2Box
             // 
-            this.address2Box.Location = new System.Drawing.Point(58, 59);
+            this.address2Box.Location = new System.Drawing.Point(116, 113);
+            this.address2Box.Margin = new System.Windows.Forms.Padding(6);
             this.address2Box.Name = "address2Box";
-            this.address2Box.Size = new System.Drawing.Size(173, 20);
+            this.address2Box.Size = new System.Drawing.Size(342, 31);
             this.address2Box.TabIndex = 7;
             // 
             // cityBox
             // 
-            this.cityBox.Location = new System.Drawing.Point(58, 93);
+            this.cityBox.Location = new System.Drawing.Point(116, 179);
+            this.cityBox.Margin = new System.Windows.Forms.Padding(6);
             this.cityBox.Name = "cityBox";
-            this.cityBox.Size = new System.Drawing.Size(173, 20);
+            this.cityBox.Size = new System.Drawing.Size(342, 31);
             this.cityBox.TabIndex = 8;
+            this.cityBox.Validating += new System.ComponentModel.CancelEventHandler(this.City_Validating);
+            this.cityBox.Validated += new System.EventHandler(this.City_Validated);
             // 
             // stateList
             // 
-            this.stateList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.stateList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateList.FormattingEnabled = true;
             this.stateList.Items.AddRange(new object[] {
             "AL",
@@ -177,41 +195,54 @@
             "WV",
             "WI",
             "WY"});
-            this.stateList.Location = new System.Drawing.Point(58, 120);
+            this.stateList.Location = new System.Drawing.Point(116, 231);
+            this.stateList.Margin = new System.Windows.Forms.Padding(6);
             this.stateList.Name = "stateList";
-            this.stateList.Size = new System.Drawing.Size(173, 21);
+            this.stateList.Size = new System.Drawing.Size(342, 33);
             this.stateList.TabIndex = 9;
             // 
             // zipBox
             // 
-            this.zipBox.Location = new System.Drawing.Point(61, 154);
+            this.zipBox.Location = new System.Drawing.Point(122, 296);
+            this.zipBox.Margin = new System.Windows.Forms.Padding(6);
             this.zipBox.Name = "zipBox";
-            this.zipBox.Size = new System.Drawing.Size(170, 20);
+            this.zipBox.Size = new System.Drawing.Size(336, 31);
             this.zipBox.TabIndex = 10;
+            this.zipBox.Validating += new System.ComponentModel.CancelEventHandler(this.Zip_Validating);
+            this.zipBox.Validated += new System.EventHandler(this.Zip_Validated);
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(156, 197);
+            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.okButton.Location = new System.Drawing.Point(312, 379);
+            this.okButton.Margin = new System.Windows.Forms.Padding(6);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.Size = new System.Drawing.Size(150, 44);
             this.okButton.TabIndex = 11;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(75, 197);
+            this.cancelButton.CausesValidation = false;
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Location = new System.Drawing.Point(150, 379);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(6);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.Size = new System.Drawing.Size(150, 44);
             this.cancelButton.TabIndex = 12;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
+            // fieldError
+            // 
+            this.fieldError.ContainerControl = this;
+            // 
             // AddressForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(263, 235);
+            this.ClientSize = new System.Drawing.Size(526, 452);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.zipBox);
@@ -225,8 +256,11 @@
             this.Controls.Add(this.cityLabel);
             this.Controls.Add(this.addressLabel);
             this.Controls.Add(this.nameLabel);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "AddressForm";
             this.Text = "AddressForm";
+            this.Load += new System.EventHandler(this.AddressForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.fieldError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +281,6 @@
         private System.Windows.Forms.TextBox zipBox;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.ErrorProvider fieldError;
     }
 }
