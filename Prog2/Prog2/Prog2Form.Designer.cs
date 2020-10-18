@@ -114,15 +114,16 @@
             // listAddressesToolStripMenuItem
             // 
             this.listAddressesToolStripMenuItem.Name = "listAddressesToolStripMenuItem";
-            this.listAddressesToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.listAddressesToolStripMenuItem.Size = new System.Drawing.Size(298, 44);
             this.listAddressesToolStripMenuItem.Text = "List Addresses";
             this.listAddressesToolStripMenuItem.Click += new System.EventHandler(this.listAddressesToolStripMenuItem_Click);
             // 
             // listParcelsToolStripMenuItem
             // 
             this.listParcelsToolStripMenuItem.Name = "listParcelsToolStripMenuItem";
-            this.listParcelsToolStripMenuItem.Size = new System.Drawing.Size(298, 44);
+            this.listParcelsToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.listParcelsToolStripMenuItem.Text = "List Parcels";
+            this.listParcelsToolStripMenuItem.Click += new System.EventHandler(this.listParcelsToolStripMenuItem_Click);
             // 
             // reportBox
             // 

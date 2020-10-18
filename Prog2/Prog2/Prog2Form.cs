@@ -20,7 +20,18 @@ namespace UPVApp
 {
     public partial class Prog2Form : Form
     {
-        private List<Address> homes = new List<Address> { };
+        private List<Address> homes = new List<Address> {
+            new Address("Helen C. Bice", "1163 Thompson Drive", "El Sobrante", "CA", 94803),
+            new Address("Teresa T. Johnson", "3542 Farland Street", "Apt 101", "Westborough", "MA", 01581),
+            new Address("Troy H. Thomas", "1299 Saints Alley", "Plant City", "FL", 33564),
+            new Address("Susan K. McCrady", "3118 Chenoweth Drive", "Apt B3", "Clarksville", "TN", 37040),
+            new Address("Nicholle C. Warren", "2187 Leo Street", "Pittsburgh", "PA", 15203),
+            new Address("Vanessa P. Burgos", "373 Wayback Lane", "New York", "NY", 10013),
+            new Address("Amy T. Hight", "4254 Valley Drive", "North Wales", "PA", 19454),
+            new Address("Lauren A. Proffitt", "2269 Boggess Street", "Apt 101", "Wichita Falls", "TX", 76301)
+        };
+
+        private List<Parcel> parcels = new List<Parcel> { };
 
         /*
          * Preconditions: None
@@ -82,8 +93,24 @@ namespace UPVApp
 
         private void insertParcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LetterForm letterForm = new LetterForm();
-            letterForm.ShowDialog();
+            LetterForm letterForm = new LetterForm(homes);
+
+            DialogResult result; // Result from dialog - OK/Cancel?
+
+            result = letterForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                parcels.Add(letterForm.newLetter);
+            }
+        }
+
+        private void listParcelsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reportBox.Text = String.Empty;
+
+            foreach (Parcel parcel in parcels)
+                reportBox.Text += parcel.ToString() + Environment.NewLine + Environment.NewLine;
         }
     }
 }
