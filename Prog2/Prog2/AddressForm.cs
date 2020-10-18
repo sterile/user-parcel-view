@@ -1,24 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+ * Grading ID: E3780
+ * Program: 2
+ * Due Date: October 19 2020
+ * Course: CIS 200-76
+ * Description: Provides backend code for the Address form.
+ */
+
+using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UPVApp
 {
     public partial class AddressForm : Form
     {
+
+        // Event Handlers
+
+        /*
+         * Preconditions: Form is initialized
+         * Postcondition: Form is loaded
+         */
+
         public AddressForm()
         {
             InitializeComponent();
         }
 
+        /*
+         * Preconditions: Form is loaded
+         * Postcondition: State is initialized to first value
+         */
+
+        private void AddressForm_Load(object sender, EventArgs e)
+        {
+            // Set an initial state to avoid crashing the form
+            const int ZERO = 0; // First index
+            stateList.SelectedIndex = ZERO;
+        }
+
+        /*
+         * Preconditions: OK button is clicked
+         * Postcondition: Window closes if fields are valid
+         */
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            if (this.ValidateChildren())
+                this.DialogResult = DialogResult.OK;
+        }
+
+        // Address Property
+
         internal Address newAddress
         {
+            /*
+             * Preconditions: None
+             * Postcondition: Return address
+             */
+
             get
             {
                 int.TryParse(zipBox.Text, out int zip);
@@ -26,6 +66,13 @@ namespace UPVApp
             }
         }
         
+        // Field Validation
+
+        /*
+         * Preconditions: Data entered in name field
+         * Postcondition: Name is validated to not be empty
+         */
+
         private void NameField_Validating(object sender, CancelEventArgs e)
         {
             if (String.IsNullOrWhiteSpace(nameBox.Text)) {
@@ -34,10 +81,20 @@ namespace UPVApp
             }
         }
 
+        /*
+         * Preconditions: Data is not empty
+         * Postcondition: Form allowed to continue
+         */
+
         private void NameField_Validated(object sender, EventArgs e)
         {
             fieldError.SetError(nameBox, string.Empty); // Clears Error Message
         }
+
+        /*
+         * Preconditions: Data entered in name field
+         * Postcondition: Name is validated to not be empty
+         */
 
         private void Adr1_Validating(object sender, CancelEventArgs e)
         {
@@ -47,10 +104,21 @@ namespace UPVApp
                 fieldError.SetError(address1Box, "Address must not be empty!");
             }
         }
+
+        /*
+         * Preconditions: Data is not empty
+         * Postcondition: Form allowed to continue
+         */
+
         private void Adr1_Validated(object sender, EventArgs e)
         {
             fieldError.SetError(address1Box, string.Empty); // Clears Error Message
         }
+
+        /*
+         * Preconditions: Data entered in name field
+         * Postcondition: Name is validated to not be empty
+         */
 
         private void City_Validating(object sender, CancelEventArgs e)
         {
@@ -61,10 +129,20 @@ namespace UPVApp
             }
         }
 
+        /*
+         * Preconditions: Data is not empty
+         * Postcondition: Form allowed to continue
+         */
+
         private void City_Validated(object sender, EventArgs e)
         {
             fieldError.SetError(cityBox, string.Empty); // Clears Error Message
         }
+
+        /*
+         * Preconditions: Data entered in name field
+         * Postcondition: Name is validated to not be empty
+         */
 
         private void Zip_Validating(object sender, CancelEventArgs e)
         {
@@ -81,23 +159,14 @@ namespace UPVApp
             }
         }
 
+        /*
+         * Preconditions: Data is not empty
+         * Postcondition: Form allowed to continue
+         */
+
         private void Zip_Validated(object sender, EventArgs e)
         {
             fieldError.SetError(zipBox, String.Empty);
-        }
-
-
-        private void AddressForm_Load(object sender, EventArgs e)
-        {
-            // Set an initial state to avoid crashing the form
-            const int ZERO = 0; // First index
-            stateList.SelectedIndex = ZERO;
-        }
-
-        private void okButton_Click(object sender, EventArgs e)
-        {
-            if (this.ValidateChildren())
-                this.DialogResult = DialogResult.OK;
         }
     }
 }
