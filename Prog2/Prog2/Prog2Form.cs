@@ -77,13 +77,10 @@ namespace UPVApp
             }
         }
 
-        private void listAddressesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            reportBox.Text = String.Empty;
-
-            foreach (Address adr in homes)
-                reportBox.Text += adr.ToString() + Environment.NewLine + Environment.NewLine;
-        }
+        /*
+         * Preconditions: The insert letter button is clicked.
+         * Postcondition: The letter form appears and address is added to the list if necessary.
+         */
 
         private void insertParcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -98,6 +95,25 @@ namespace UPVApp
                 parcels.Add(letterForm.newLetter);
             }
         }
+
+        /*
+         * Preconditions: The list addresses button is clicked.
+         * Postcondition: The addresses appear in the report.
+         */
+
+        private void listAddressesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reportBox.Text = String.Empty;
+
+            foreach (Address adr in homes)
+                reportBox.Text += adr.ToString() + Environment.NewLine + Environment.NewLine;
+        }
+
+
+        /*
+         * Preconditions: The list addresses button is clicked.
+         * Postcondition: The addresses appear in the report.
+         */
 
         private void listParcelsToolStripMenuItem_Click(object sender, EventArgs e)
         {

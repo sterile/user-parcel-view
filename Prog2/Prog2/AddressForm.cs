@@ -92,8 +92,8 @@ namespace UPVApp
         }
 
         /*
-         * Preconditions: Data entered in name field
-         * Postcondition: Name is validated to not be empty
+         * Preconditions: Data entered in address field
+         * Postcondition: Address is validated to not be empty
          */
 
         private void Adr1_Validating(object sender, CancelEventArgs e)
@@ -116,8 +116,8 @@ namespace UPVApp
         }
 
         /*
-         * Preconditions: Data entered in name field
-         * Postcondition: Name is validated to not be empty
+         * Preconditions: Data entered in city field
+         * Postcondition: City is validated to not be empty
          */
 
         private void City_Validating(object sender, CancelEventArgs e)
@@ -140,8 +140,8 @@ namespace UPVApp
         }
 
         /*
-         * Preconditions: Data entered in name field
-         * Postcondition: Name is validated to not be empty
+         * Preconditions: Data entered in zip field
+         * Postcondition: Zip is validated to not be empty
          */
 
         private void Zip_Validating(object sender, CancelEventArgs e)
