@@ -62,7 +62,7 @@
             this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 38);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // aboutToolStripMenuItem
@@ -85,20 +85,20 @@
             this.insertAddressToolStripMenuItem,
             this.insertParcelToolStripMenuItem});
             this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            this.insertToolStripMenuItem.Size = new System.Drawing.Size(94, 36);
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(94, 38);
             this.insertToolStripMenuItem.Text = "Insert";
             // 
             // insertAddressToolStripMenuItem
             // 
             this.insertAddressToolStripMenuItem.Name = "insertAddressToolStripMenuItem";
-            this.insertAddressToolStripMenuItem.Size = new System.Drawing.Size(233, 44);
+            this.insertAddressToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.insertAddressToolStripMenuItem.Text = "Address";
             this.insertAddressToolStripMenuItem.Click += new System.EventHandler(this.insertAddressToolStripMenuItem_Click);
             // 
             // insertParcelToolStripMenuItem
             // 
             this.insertParcelToolStripMenuItem.Name = "insertParcelToolStripMenuItem";
-            this.insertParcelToolStripMenuItem.Size = new System.Drawing.Size(233, 44);
+            this.insertParcelToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.insertParcelToolStripMenuItem.Text = "Letter";
             // 
             // reportToolStripMenuItem
@@ -107,7 +107,7 @@
             this.listAddressesToolStripMenuItem,
             this.listParcelsToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(105, 36);
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(105, 38);
             this.reportToolStripMenuItem.Text = "Report";
             // 
             // listAddressesToolStripMenuItem
@@ -126,7 +126,7 @@
             // 
             this.reportBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportBox.Location = new System.Drawing.Point(0, 44);
-            this.reportBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.reportBox.Margin = new System.Windows.Forms.Padding(6);
             this.reportBox.Multiline = true;
             this.reportBox.Name = "reportBox";
             this.reportBox.ReadOnly = true;
@@ -142,7 +142,7 @@
             this.Controls.Add(this.reportBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Prog2Form";
             this.Text = "User Parcel View";
             this.menuStrip1.ResumeLayout(false);

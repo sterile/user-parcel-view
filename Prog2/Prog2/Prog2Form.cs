@@ -20,6 +20,8 @@ namespace UPVApp
 {
     public partial class Prog2Form : Form
     {
+        private List<Address> homes = new List<Address> { };
+
         /*
          * Preconditions: None
          * Postcondition: Form is initialized.
@@ -53,13 +55,22 @@ namespace UPVApp
 
         /*
          * Preconditions: The insert Address button is clicked.
-         * Postcondition: The address form appears.
+         * Postcondition: The address form appears and address is added to the list if necessary.
          */
 
         private void insertAddressToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddressForm address = new AddressForm();
-            address.ShowDialog();
+            AddressForm addressForm = new AddressForm();
+
+            Address newAdr = addressForm.newAddress;
+            DialogResult result; // Result from dialog - OK/Cancel?
+
+            result = addressForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                homes.Add(newAdr);
+            }
         }
     }
 }
