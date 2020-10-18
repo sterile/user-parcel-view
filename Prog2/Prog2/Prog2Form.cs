@@ -62,15 +62,22 @@ namespace UPVApp
         {
             AddressForm addressForm = new AddressForm();
 
-            Address newAdr = addressForm.newAddress;
             DialogResult result; // Result from dialog - OK/Cancel?
 
             result = addressForm.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                homes.Add(newAdr);
+                homes.Add(addressForm.newAddress);
             }
+        }
+
+        private void listAddressesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reportBox.Text = String.Empty;
+
+            foreach (Address adr in homes)
+                reportBox.Text += adr.ToString() + Environment.NewLine + Environment.NewLine;
         }
     }
 }

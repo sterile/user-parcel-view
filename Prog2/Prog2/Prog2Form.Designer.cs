@@ -113,8 +113,9 @@
             // listAddressesToolStripMenuItem
             // 
             this.listAddressesToolStripMenuItem.Name = "listAddressesToolStripMenuItem";
-            this.listAddressesToolStripMenuItem.Size = new System.Drawing.Size(298, 44);
+            this.listAddressesToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.listAddressesToolStripMenuItem.Text = "List Addresses";
+            this.listAddressesToolStripMenuItem.Click += new System.EventHandler(this.listAddressesToolStripMenuItem_Click);
             // 
             // listParcelsToolStripMenuItem
             // 
