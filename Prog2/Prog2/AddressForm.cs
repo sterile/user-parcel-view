@@ -122,6 +122,7 @@ namespace UPVApp
         {
             if (String.IsNullOrWhiteSpace(nameBox.Text)) {
                 e.Cancel = true;
+                nameBox.SelectAll();
                 fieldError.SetError(nameBox, "Name must not be empty!");
             }
         }
@@ -146,6 +147,7 @@ namespace UPVApp
             if (String.IsNullOrWhiteSpace(address1Box.Text))
             {
                 e.Cancel = true;
+                address1Box.SelectAll();
                 fieldError.SetError(address1Box, "Address must not be empty!");
             }
         }
@@ -170,6 +172,7 @@ namespace UPVApp
             if (String.IsNullOrWhiteSpace(cityBox.Text))
             {
                 e.Cancel = true;
+                cityBox.SelectAll();
                 fieldError.SetError(cityBox, "City must not be empty!");
             }
         }
@@ -200,6 +203,7 @@ namespace UPVApp
             if (!textToInt || zip < MIN_ZIP || zip > MAX_ZIP)
             {
                 e.Cancel = true;
+                zipBox.SelectAll();
                 fieldError.SetError(zipBox, "Invalid ZIP provided.");
             }
         }
