@@ -14,18 +14,7 @@ namespace UPVApp
 {
     public partial class Prog2Form : Form
     {
-        private List<Address> homes = new List<Address> {
-            new Address("Helen C. Bice", "1163 Thompson Drive", "El Sobrante", "CA", 94803),
-            new Address("Teresa T. Johnson", "3542 Farland Street", "Apt 101", "Westborough", "MA", 01581),
-            new Address("Troy H. Thomas", "1299 Saints Alley", "Plant City", "FL", 33564),
-            new Address("Susan K. McCrady", "3118 Chenoweth Drive", "Apt B3", "Clarksville", "TN", 37040),
-            new Address("Nicholle C. Warren", "2187 Leo Street", "Pittsburgh", "PA", 15203),
-            new Address("Vanessa P. Burgos", "373 Wayback Lane", "New York", "NY", 10013),
-            new Address("Amy T. Hight", "4254 Valley Drive", "North Wales", "PA", 19454),
-            new Address("Lauren A. Proffitt", "2269 Boggess Street", "Apt 101", "Wichita Falls", "TX", 76301)
-        };
-
-        private List<Parcel> parcels = new List<Parcel> { };
+        private UserParcelView upv = new UserParcelView();
 
         /*
          * Preconditions: None
@@ -35,6 +24,27 @@ namespace UPVApp
         public Prog2Form()
         {
             InitializeComponent();
+
+
+            upv.AddAddress("Helen C. Bice", "1163 Thompson Drive", "El Sobrante", "CA", 94803);
+            upv.AddAddress("Teresa T. Johnson", "3542 Farland Street", "Apt 101", "Westborough", "MA", 01581);
+            upv.AddAddress("Troy H. Thomas", "1299 Saints Alley", "Plant City", "FL", 33564);
+            upv.AddAddress("Susan K. McCrady", "3118 Chenoweth Drive", "Apt B3", "Clarksville", "TN", 37040);
+            upv.AddAddress("Nicholle C. Warren", "2187 Leo Street", "Pittsburgh", "PA", 15203);
+            upv.AddAddress("Vanessa P. Burgos", "373 Wayback Lane", "New York", "NY", 10013);
+            upv.AddAddress("Amy T. Hight", "4254 Valley Drive", "North Wales", "PA", 19454);
+            upv.AddAddress("Lauren A. Proffitt", "2269 Boggess Street", "Apt 101", "Wichita Falls", "TX", 76301);
+
+            upv.AddGroundPackage(upv.AddressAt(0), upv.AddressAt(1), 5, 5, 6, 1);
+            upv.AddGroundPackage(upv.AddressAt(0), upv.AddressAt(1), 30, 42, 18, 60);
+            upv.AddNextDayAirPackage(upv.AddressAt(0), upv.AddressAt(3), 40, 20, 60, 74, 10M);
+            upv.AddNextDayAirPackage(upv.AddressAt(4), upv.AddressAt(2), 10, 13, 13, 100, 50M);
+            upv.AddTwoDayAirPackage(upv.AddressAt(2), upv.AddressAt(1), 20, 25, 50, 75, TwoDayAirPackage.Delivery.Early);
+            upv.AddTwoDayAirPackage(upv.AddressAt(2), upv.AddressAt(3), 40, 40, 20, 76, TwoDayAirPackage.Delivery.Saver);
+            upv.AddLetter(upv.AddressAt(2), upv.AddressAt(0), 0.46M);
+            upv.AddLetter(upv.AddressAt(4), upv.AddressAt(6), 0.77M);
+            upv.AddGroundPackage(upv.AddressAt(7), upv.AddressAt(5), 30, 23, 98, 12);
+            upv.AddNextDayAirPackage(upv.AddressAt(3), upv.AddressAt(6), 22, 32, 18, 32, 15M);
         }
 
         /*
@@ -68,12 +78,13 @@ namespace UPVApp
             AddressForm addressForm = new AddressForm();
 
             DialogResult result; // Result from dialog - OK/Cancel?
-
+            Address adr1;
             result = addressForm.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                homes.Add(addressForm.newAddress);
+                adr1 = addressForm.NewAddress;
+                upv.AddAddress(adr1.Name, adr1.Address1, adr1.Address2, adr1.City, adr1.State, adr1.Zip);
             }
         }
 
@@ -84,7 +95,7 @@ namespace UPVApp
 
         private void insertParcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LetterForm letterForm = new LetterForm(homes);
+            LetterForm letterForm = new LetterForm(upv.AddressList);
 
             DialogResult result; // Result from dialog - OK/Cancel?
 
@@ -92,7 +103,7 @@ namespace UPVApp
 
             if (result == DialogResult.OK)
             {
-                parcels.Add(letterForm.newLetter);
+                upv.AddLetter(upv.AddressAt(letterForm.From), upv.AddressAt(letterForm.To), letterForm.Cost);
             }
         }
 
@@ -105,7 +116,7 @@ namespace UPVApp
         {
             reportBox.Text = String.Empty;
 
-            foreach (Address adr in homes)
+            foreach (Address adr in upv.AddressList)
                 reportBox.Text += adr.ToString() + Environment.NewLine + Environment.NewLine;
         }
 
@@ -117,10 +128,15 @@ namespace UPVApp
 
         private void listParcelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            decimal cost = decimal.Zero;
             reportBox.Text = String.Empty;
 
-            foreach (Parcel parcel in parcels)
+            foreach (Parcel parcel in upv.ParcelList)
+            {
                 reportBox.Text += parcel.ToString() + Environment.NewLine + Environment.NewLine;
+                cost += parcel.CalcCost();
+            }
+            reportBox.Text += $"Total Cost: {cost:C}";
         }
     }
 }

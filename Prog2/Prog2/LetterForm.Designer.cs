@@ -74,8 +74,10 @@
             this.fromBox.FormattingEnabled = true;
             this.fromBox.Location = new System.Drawing.Point(87, 23);
             this.fromBox.Name = "fromBox";
-            this.fromBox.Size = new System.Drawing.Size(278, 33);
+            this.fromBox.Size = new System.Drawing.Size(367, 33);
             this.fromBox.TabIndex = 3;
+            this.fromBox.Validating += new System.ComponentModel.CancelEventHandler(this.From_Validating);
+            this.fromBox.Validated += new System.EventHandler(this.From_Validated);
             // 
             // toBox
             // 
@@ -83,7 +85,7 @@
             this.toBox.FormattingEnabled = true;
             this.toBox.Location = new System.Drawing.Point(87, 88);
             this.toBox.Name = "toBox";
-            this.toBox.Size = new System.Drawing.Size(278, 33);
+            this.toBox.Size = new System.Drawing.Size(367, 33);
             this.toBox.TabIndex = 4;
             this.toBox.Validating += new System.ComponentModel.CancelEventHandler(this.To_Validating);
             this.toBox.Validated += new System.EventHandler(this.To_Validated);
@@ -92,15 +94,14 @@
             // 
             this.costBox.Location = new System.Drawing.Point(87, 151);
             this.costBox.Name = "costBox";
-            this.costBox.Size = new System.Drawing.Size(278, 31);
+            this.costBox.Size = new System.Drawing.Size(367, 31);
             this.costBox.TabIndex = 5;
             this.costBox.Validating += new System.ComponentModel.CancelEventHandler(this.Cost_Validating);
             this.costBox.Validated += new System.EventHandler(this.Cost_Validated);
             // 
             // okButton
             // 
-            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(222, 206);
+            this.okButton.Location = new System.Drawing.Point(307, 206);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(105, 39);
             this.okButton.TabIndex = 6;
@@ -112,7 +113,7 @@
             // 
             this.cancelButton.CausesValidation = false;
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(58, 206);
+            this.cancelButton.Location = new System.Drawing.Point(134, 206);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(104, 39);
             this.cancelButton.TabIndex = 7;
@@ -127,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 266);
+            this.ClientSize = new System.Drawing.Size(508, 266);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.costBox);

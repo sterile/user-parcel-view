@@ -19,22 +19,38 @@ namespace UPVApp
 
         private List<Address> addressList;
         
-        // Letter Property
+        // Letter Properties
 
-        internal Letter newLetter
+        internal int From
         {
             /*
              * Preconditions: None
-             * Postcondition: Returns a letter object
+             * Postcondition: Returns the "From" address index
              */
 
-            get
-            {
-                decimal.TryParse(costBox.Text, out decimal cost);
-                return new Letter(addressList[fromBox.SelectedIndex], addressList[toBox.SelectedIndex], cost);
-            }
+            get => fromBox.SelectedIndex;
         }
 
+        internal int To
+        {
+            /*
+             * Preconditions: None
+             * Postcondition: Returns the "To" address index
+             */
+
+            get => toBox.SelectedIndex;
+        }
+
+        internal decimal Cost
+        {
+            /*
+             * Preconditions: None
+             * Postcondition: Returns the cost.
+             */
+
+            get => decimal.Parse(costBox.Text);
+        }
+      
         // Event Handlers
 
         /*
@@ -62,9 +78,8 @@ namespace UPVApp
 
         private void LetterForm_Load(object sender, EventArgs e)
         {
-            const int ZERO = 0;
-            fromBox.SelectedIndex = ZERO;
-            toBox.SelectedIndex = ZERO;
+            fromBox.SelectedIndex = 0;                    // Select first address in list
+            toBox.SelectedIndex = addressList.Count - 1;  // Select last address in list
         }
 
         /*
@@ -85,12 +100,37 @@ namespace UPVApp
          * Postcondition: Address is validated to not be same as "To" address
          */
 
+        private void From_Validating(object sender, CancelEventArgs e)
+        {
+            if (int.Equals(fromBox.SelectedIndex, toBox.SelectedIndex))
+            {
+                e.Cancel = true;
+                letterErrors.SetError(fromBox, "Sender cannot be receiver!");
+            }
+        }
+
+        /*
+         * Preconditions: From != To
+         * Postcondition: Allow form to continue.
+         */
+
+        private void From_Validated(object sender, EventArgs e)
+        {
+            letterErrors.SetError(fromBox, string.Empty); // Clears Error Message
+        }
+
+
+        /*
+         * Preconditions: Address selcted in to box
+         * Postcondition: Address is validated to not be same as "To" address
+         */
+
         private void To_Validating(object sender, CancelEventArgs e)
         {
             if (int.Equals(fromBox.SelectedIndex, toBox.SelectedIndex))
             {
                 e.Cancel = true;
-                letterErrors.SetError(toBox, "Cannot send letter to sender!");
+                letterErrors.SetError(toBox, "Receiver cannot be sender!");
             }
         }
 
@@ -116,9 +156,10 @@ namespace UPVApp
 
             tryParse = decimal.TryParse(costBox.Text, out cost);
 
-            if (!tryParse || cost <= decimal.Zero)
+            if (!tryParse || cost < decimal.Zero)
             {
                 e.Cancel = true;
+                costBox.SelectAll();
                 letterErrors.SetError(costBox, $"Cost must be at least {decimal.Zero:C}");
             }
         }

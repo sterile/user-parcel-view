@@ -35,8 +35,7 @@ namespace UPVApp
         private void AddressForm_Load(object sender, EventArgs e)
         {
             // Set an initial state to avoid crashing the form
-            const int ZERO = 0; // First index
-            stateList.SelectedIndex = ZERO;
+            stateList.SelectedIndex = 0;
         }
 
         /*
@@ -50,9 +49,9 @@ namespace UPVApp
                 this.DialogResult = DialogResult.OK;
         }
 
-        // Address Property
+        // Address Properties
 
-        internal Address newAddress
+        internal Address NewAddress
         {
             /*
              * Preconditions: None
