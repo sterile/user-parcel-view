@@ -75,16 +75,14 @@ namespace UPVApp
 
         private void insertAddressToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddressForm addressForm = new AddressForm();
+            AddressForm adf = new AddressForm();
 
             DialogResult result; // Result from dialog - OK/Cancel?
-            Address adr1;
-            result = addressForm.ShowDialog();
+            result = adf.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                adr1 = addressForm.NewAddress;
-                upv.AddAddress(adr1.Name, adr1.Address1, adr1.Address2, adr1.City, adr1.State, adr1.Zip);
+                upv.AddAddress(adf.AddressName, adf.Address1, adf.Address2, adf.City, adf.State, adf.Zip);
             }
         }
 

@@ -51,18 +51,64 @@ namespace UPVApp
 
         // Address Properties
 
-        internal Address NewAddress
+        internal string AddressName
         {
             /*
              * Preconditions: None
-             * Postcondition: Return address
+             * Postcondition: Returns the "Name" field
              */
 
-            get
-            {
-                int.TryParse(zipBox.Text, out int zip);
-                return new Address(nameBox.Text, address1Box.Text, address2Box.Text, cityBox.Text, stateList.Text, zip);
-            }
+            get => nameBox.Text;
+        }
+
+        internal string Address1
+        {
+            /*
+             * Preconditions: None
+             * Postcondition: Returns the "Address 1" field
+             */
+
+            get => address1Box.Text;
+        }
+
+        internal string Address2
+        {
+            /*
+             * Preconditions: None
+             * Postcondition: Returns the "Address 2" field
+             */
+
+            get => address2Box.Text;
+        }
+
+        internal string City
+        {
+            /*
+             * Preconditions: None
+             * Postcondition: Returns the "City" field
+             */
+
+            get => cityBox.Text;
+        }
+
+        internal string State
+        {
+            /*
+             * Preconditions: None
+             * Postcondition: Returns the "State" field
+             */
+
+            get => stateList.Text;
+        }
+
+        internal int Zip
+        {
+            /*
+             * Preconditions: None
+             * Postcondition: Returns the "ZIP" field
+             */
+
+            get => int.Parse(zipBox.Text);
         }
         
         // Field Validation
